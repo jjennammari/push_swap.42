@@ -1,0 +1,246 @@
+3.9.
+
+PUSH_SWAP
+
+	CODE TODAY
+
+			Files:
+
+				exit_error.c
+						1. Count stack size and give it to variable i
+						2. Free stack a nodes while i > 0
+						3. Write error message and newline
+						4. Exit the program with exit status 1 to tell that ran into an error
+
+	LEARNED TODAY
+
+			EXIT FUNCTION: Exit function terminates the current program, and so, it is a void and does not return anything. Function takes an int as an argument to tell the status of the program.
+							- 0 = that the program ran successfully
+							- 1 = that there was an error in the program
+			
+					declaration:
+							void	exit(int status); // library stdlib.h
+				
+					Exit function will do the next processes:
+						1. Call the functions registered with the atexit(3) function, in
+            					the reverse order of their registration. (terminates all the programs which are running)
+						2. Flush all open output streams. (flushes all the file buffers)
+						3. Close all open streams. (closes all the stream)
+						4. Unlink all files created with the tmpfile(3) function. (deletes all temporary files)
+
+			POINTERS AND DOUBLE POINTERS
+
+	TO DO NEXT
+
+			- Answer yesterday's guestion // DONE
+			- Function to: free nodes, print error message and exit the program // DONE
+			- Make condition to handle if in arguments there are two signs before number
+			- Test to create and print the stack
+			- Makefile
+			- Algorithm
+
+
+2.9
+
+PUSH_SWAP
+
+	CODE TODAY
+
+			Files:
+				create_stack.c
+						t_node  add_to_stack: Changed return type if new_node malloc fales because the function is not void
+							- Before: return ;
+							- Now: return (NULL);
+
+						t_node	reate_stack: Added a check in the while loop after adding a new node to stack a because if the malloc in new_node failed, error and exit
+							- Before: after the line "*a = add_to_stack(*a, (int)nbr);" came i++;
+							- Now: between those added if (a == NULL)
+															error_exit;
+
+	LEARNED TODAY
+
+			- That return ; can be only used in void functions because we are literally returning nothing.
+
+			- For my stack operation functions, I should send only stack wihtout * or & because the stack is already a pointer in my code and functions that modify stack, should take a stack pointer.
+
+
+	GUESTIONS
+
+		1. How to handle errors by freeing and exiting?
+
+				ANSWER:
+						- Count the amount of nodes and put to i
+						- Free while i > 0
+						- print error message with write function
+						- use exit function to quit and exit the program
+
+	TO DO NEXT
+	    - print error and free if error. how to exit a function? should I imitate some std function to handle errors? // NOTE: no, I can use exit function
+        - solve my previous day guestions // DONE
+        - makefile
+        - test creating and printing stack
+        - choose an algorithm and input it
+
+
+27.8.
+
+PUSH_SWAP
+
+	CODE TODAY
+
+		Updated push_swap.h and added all the functions done so far.
+
+		Files:
+			rotate.c
+				- Changed logic in while -> last = last->next; INSTEAD last = *top->next // because it is dangerous to modify the top pointer
+				- Added * to top cause it is ** and we cant acces to it without *-sign - before was just top
+				- Added if statements to handle if the node or second node does not exist and we have nothing to rotate
+
+			reverse_rotate.c
+				- Changed logic in while -> second_last = second_last->next; INSTEAD second_last = second_last->next->next // because otherwise it will point to NULL instead of last node
+				- Added * to top cause it is ** and we cant acces to it without *-sign - before was just top
+				- Added if statements to handle if the node or second node does not exist and we have nothing to rotate
+
+			push.c includes: push, push_a, push_b
+				- Decided to link all to each other without copy because seemed much more simple:
+						n1 = *src;
+			  	 		*src = n1->next;
+    					n1->next = *b;
+    					*b = n1;
+
+			stack_helper.c includes: check_if_nbr, check_if_double, ft_atol
+
+			create_stack.c include: create_stack, add_to_stack
+				- Returning *a because stack is a pointer that points to more pointers
+
+	LEARNED TODAY
+
+		New consepts:
+
+				TRAVERSAL of a single linked list = moving through and accessing each node of the list until NULL
+
+	GUESTIONS
+
+		1. What return ; actually does?
+
+				ANSWER:
+					It is saying: "stop here, exit function now and return nothing". This is valid only with void functions as only void returns nothing.
+
+		2. Do I need to allocate memory for the new node in b when pushing a node from stack a to b?
+
+				ANSWER:
+					Depends. If I copy the node, I need to malloc the size of a new node but I can also just link them again in a new order and then I don't need to malloc. Chose to link in a new way.
+
+		3. In my stack operation functions, should I send & of stack or * of stack to the functions?
+
+				ANSWER:
+					If stack is already a pointer, I only send the stack but if it is an array, I should send an address
+
+	TO DO NEXT
+		- Think also about: delete modify_stack.c name and add add_to_stack function to create_stack.c / create stack_helper.c and add there atol, stack_size, all stack check functins // DONE;
+	   	- create a new_node to my stack and insert the value there // DONE;
+		- print error and free if error
+		- solve my guestions
+		- makefile
+		- test creating and printing stack
+		- choose an algorithm and input it
+
+
+26.8.
+
+PUSH_SWAP
+
+	CODED TODAY
+
+		Files:
+			swap.c includes: void	swap(t_node **top) / void	swap_a(t_node **a) / void	swap_b(t_node **b) / void	swap_ab(t_node **a, t_node **b)
+				- own functions to: a, b, ab, because want to print the commands everytime using that operation
+
+			rotate.c includes: void	rotate(t_node **top) / void	rotate_a(t_node **a) / void	rotate_b(t_node **b) / void	rotate_ab(t_node **a, t_node **b)
+				- own functions to: a, b, ab, because want to print the commands everytime using that operation
+
+			reverse_rotate.c includes: void	reverse_rotate(t_node **top) / void	reverse_rotate_a(t_node **a) / void	reverse_rotate_b(t_node **b) / void	reverse_rotate_ab(t_node **a, t_node **b)
+				- own functions to: a, b, ab, because want to print the commands everytime using that operation
+
+	LEARNED TODAY
+
+		Explanation of checks before operating in stack:
+
+			if (!top || !*top || !(*top)->next)
+				return ;
+
+				!top = check if the function was called with NULL instead of real value in top -> rotate(NULL); instead of rotate(&a);
+				!*top = check if the stack is empty and first node is NULL
+				!(*top)->next = check if the first node's next is NULL (= second node is NULL)
+	
+		Syntax for singly linked list:
+
+			Access a node and assign or get it's value:
+	
+				-> = structure dereference operator // it is used with structure pointers in linked lists to access the members of that struct
+
+				*top = n1; // top pointer will point to the first node
+
+				n1->next // next is pointin to the address of 2nd node
+
+				*top->next->next->data // this will give me the access of 3rd node's value
+
+				Get the last node of the list:
+					while (last->next != NULL)
+						last = last->next;
+
+				Get the 2nd last node of the list:
+					while (second_last->next->next != NULL)
+						second_last = second_last->next;
+
+				Accessing with a pointer;
+					struct s_node	*top;
+
+					(*top).data = 7; // dereferencing and assigning a value to node pointed by top pointer
+					top->data = 7; // doing the same thing but with a shortening code syntax
+					
+					(*top).next = NULL; // again, this is first dereferencing inside the () and then assigning the value NULL
+					top->next = NULL; // and this is the same with shortening code syntax
+
+					Commonly used when:
+							- Dynamically allocating memory
+							- Sharing the same struct across different functions
+							- Building linked data structures (linked lists, tree, graph
+							- Wanting polymorphism-style behaviour (e.g passing around "handles" to big objects)
+							- polymorphism = I DO NOT UNDERSTAND WHAT THIS MEANS YET
+
+				Accessing with an object (not a pointer!)
+					struct s_node	top;
+
+					top.data = 7;
+					top.next = NULL;
+
+					Commonly used when:
+							- The struct is small and has clear, fixed lifetime
+							- No need to share it between functions
+							- Exmaples: a single config project, a 2D point, small struct on the stack
+
+	GUESTIONS
+
+		1. How does the computer know to get that value through the word data? aKa how do I tell that to the computer?
+				*top->next->next->data // this will give me access to the 3rd node's value
+
+				ANSWER:
+
+					- I create a struct in push_swap.h file and there declare variables: int data / struct node *next;
+						typedef	struct	s_node
+						{
+							int	data; 
+							struct s_node	*next;
+						}
+					- Because of that, the computer knows when I want to access the data or the pointer next (which includes the address of next node) part of the node
+					
+
+	TO DO NEXT
+		- Figure out better way to find the last node in rotate.c than: last--; // apparently it is not even possible to decrement like this // DONE (see syntax for singly linked lists)
+		- Figure out better way to find the second last node in reverse_rotate.c than: second_last--; // DONE (see syntax for singly linked lists)
+		- Finish rotate.c and reverse_rotate.c // DONE
+		- push // DONE
+	   	- create a new_node to my stack and insert the value there
+		- test creating and printing stack
+		- choose an algorithm and input it
