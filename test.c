@@ -7,8 +7,8 @@ int	main(int argc, char **argv)
 	t_node	*stack;
 
 	stack = NULL;
-	stack = create_stack(stack, argv, argc);
-	size = count_stack_size(stack);
+	create_stack(&stack, argv, argc);
+	size = count_stack_size(&stack);
 	while (size > 0)
 	{
 		printf("%d\n", stack->data);

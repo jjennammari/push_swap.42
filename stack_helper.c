@@ -2,7 +2,7 @@
 
 int check_if_number(char *argv)
 {
-    while (argv != NULL)
+    while (*argv)
     {
         if (!(*argv >= 48 && *argv <= 9))
             return (1);
@@ -12,13 +12,13 @@ int check_if_number(char *argv)
     return (0);
 }
 
-int check_if_double(t_node *a, int nbr)
+int check_if_double(t_node **a, int nbr)
 {
     while (a != NULL)
     {
-        if (a->data == nbr)
+        if ((*a)->data == nbr)
             return (1);
-        a++;
+        a = &((*a)->next);
     }
     return (0);
 }
@@ -45,7 +45,7 @@ long    ft_atol(char *str)
     return (nbr * sign);
 }
 
-int	count_stack_size(t_node *a)
+int	count_stack_size(t_node **a)
 {
 	int	i;
 

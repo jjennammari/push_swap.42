@@ -12,21 +12,22 @@ typedef struct s_node
 
 		/*\ create_stack.c \*/
 
-t_node  *create_stack(t_node *a, char **argv, int argc);
-t_node  add_to_stack(t_node *top, int nbr);
+void  create_stack(t_node **a, char **argv, int argc);
+t_node  **add_to_stack(t_node **top, int nbr);
 
 		/*\ stack_helper.c \*/
 
 int check_if_number(char *argv);
-int check_if_double(t_node *a, int nbr);
+int check_if_double(t_node **a, int nbr);
 long    ft_atol(char *str);
-int	count_stack_size(t_node *a);
+int	count_stack_size(t_node **a);
 
 		/*\ error_exit.c \*/
 
-void	error_exit(t_node **a);
+void	error_int(t_node **a);
 void    error_digit(t_node **a);
 void    error_double(t_node **a);
+void    error_malloc(t_node **a);
 
 	/*\ stack operation functions \*/
 

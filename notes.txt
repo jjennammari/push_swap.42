@@ -1,3 +1,97 @@
+4.9.
+
+PUSH_SWAP
+
+	CODE TODAY
+
+				- Changed in main to send &stack as a double pointer so I could modify it directly in my create_stack function
+						- Changed create_stack declarations to recieve a double pointer
+
+				- Sending double pointer from stack a to error functions because I want to free the nodes from the stack - and thinking that it equals as modifying
+					directly the stack
+
+	LEARNED TODAY
+
+				HOW TO MOVE AND MODIFY SINGLE AND DOUBLE POINTERS BETWEEN FUNCTIONS:
+	
+					SINGLE:
+							#include <stdio.h>
+
+							void	test_pointers(int *p)
+							{
+								printf("Print first element: %d\n",*p);
+								*p += 1;
+								printf("Increased in the first element: %d\n",*p);
+								p++;												 // is the same than: p += 1;
+								printf("Moved to the next element: %d\n",*p);
+								*p += 1;
+								printf("Increased in the second element: %d\n",*p);
+							}
+
+							int	main(void)
+							{
+								int	arr[2] = {2, 88};
+
+								printf("Before function: %d\n",*arr);
+								test_pointers(arr);
+								printf("After function: %d\n", *arr);
+								return (0);
+							}
+
+							printing: NOTE: arr's first element is still 2->3 after the function test_pointers
+
+							Before function: 2
+							Print first element: 2
+							Increased in the first element: 3
+							Moved to the next element: 88
+							Increased in the second element: 89
+							After function: 3
+
+					DOUBLE:
+							#include <stdio.h>
+
+							void	test_pointers(int **pp)
+							{
+								printf("Inside first element: %d\n", **pp);
+								**pp += 1;
+								printf("Increased the first element: %d\n", **pp);
+								*pp += 1;
+								printf("Moved up to second element: %d\n", **pp);
+								**pp += 1;
+								printf("Increased the second element: %d\n", **pp);
+							}
+
+							printing: NOTE: with double pointer, I can modify the original array. And when I move up in the elements, the current element will become the 												first element.
+
+							int	main(void)
+							{
+								int	arr[2] = {2, 88};
+								int	*p;
+
+								p = arr;
+								printf("Before function: %d\n",*p);
+								test_pointers(&p);
+								printf("After function: %d\n", *p);
+								return (0);
+							}
+
+		GUESTIONS
+		
+				AM I DOING A MISTAKE WHEN USING DOUBLE POINTERS? DOES IT MEAN THAT STACK IS NOT STACK ANYMORE BUT A DOUBLE POINTER? Maybe should not use doublepointers?
+
+	TO DO NEXT
+
+				- Create test main to test creating my stack a // DONE
+				- Create ssh, link to github and push my project there // DONE
+				- Test and learn deeper about yesterday's points about pointers // DONE
+				- Go through all my pointers in the program and correct if needed // DONE
+				- Add a check to see, if in arguments there are two signs which is not okay, should error exit if this is true
+				- Learn about lldb to be able to debug my program
+				- Change error messages back to just error
+				- Algorithm: radix or turk
+				- Makefile
+
+
 3.9.
 
 PUSH_SWAP
@@ -14,7 +108,8 @@ PUSH_SWAP
 
 	LEARNED TODAY
 
-			EXIT FUNCTION: Exit function terminates the current program, and so, it is a void and does not return anything. Function takes an int as an argument to tell the status of the program.
+			EXIT FUNCTION: Exit function terminates the current program, and so, it is a void and does not return anything. Function takes an int as an argument to tell
+							the status of the program.
 							- 0 = that the program ran successfully
 							- 1 = that there was an error in the program
 			
