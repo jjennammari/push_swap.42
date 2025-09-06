@@ -2,11 +2,13 @@
 
 void	error_int(t_node **a)
 {
-	int	i;
+	long	i;
+	t_node	*temp;
 
+	temp = *a;
 	if (*a)
 	{
-		i = count_stack_size(a);
+		i = count_stack_size(temp);
 		while (i > 0)
 		{
 			free(*a);
@@ -14,17 +16,19 @@ void	error_int(t_node **a)
 			a++;
 		}
 	}
-	write (1, "Error: int\n", 6);
+	write (1, "Error: int\n", 11);
 	exit(1);
 }
 
 void    error_digit(t_node **a)
 {
     int i;
+	t_node	*temp;
 
+	temp = *a;
     if (*a)
     {
-        i = count_stack_size(a);
+        i = count_stack_size(temp);
         while (i > 0)
         {
             free(*a);
@@ -39,10 +43,12 @@ void    error_digit(t_node **a)
 void    error_double(t_node **a)
 {
     int i;
+	t_node	*temp;
 
+	temp = *a;
     if (*a)
     {
-        i = count_stack_size(a);
+        i = count_stack_size(temp);
         while (i > 0)
         {
             free(*a);
@@ -57,10 +63,12 @@ void    error_double(t_node **a)
 void    error_malloc(t_node **a)
 {
     int i;
+	t_node	*temp;
 
+	temp = *a;
     if (*a)
     {
-        i = count_stack_size(a);
+        i = count_stack_size(temp);
         while (i > 0)
         {
             free(*a);

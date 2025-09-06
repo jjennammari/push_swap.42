@@ -1,3 +1,28 @@
+6.9.
+
+PUSH_SWAP
+
+		CODE TODAY
+
+				Files:
+					stack_helper.c: 
+									- Changed all while(a != NULL) to while (*a != NULL) because I need to dereferense to see if a points to null.
+
+									- check_if_number:
+										- Changed places with returnvalues 0 and 1, becaues if function is not successfull, it returns 0 or NULL, if successfull returns anything else.
+
+						
+		LEARNED TODAY
+
+	    TO DO NEXT
+
+                - Add a check to see, if in arguments there are two signs which is not okay, should error exit if this is true
+                - Learn about lldb to be able to debug my program // DONE
+                - Change error messages back to just error
+                - Algorithm: radix or turk
+                - Makefile
+
+
 4.9.
 
 PUSH_SWAP

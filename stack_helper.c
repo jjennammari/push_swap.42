@@ -4,21 +4,28 @@ int check_if_number(char *argv)
 {
     while (*argv)
     {
-        if (!(*argv >= 48 && *argv <= 9))
-            return (1);
+		if (*argv == '+' || *argv == '-')
+		{
+			if ((*argv) + 1 == '-' || (*argv) + 1 == '+')
+				return (0);
+			else
+				argv++;
+		}
+        if (!(*argv >= '0' && *argv <= '9'))
+            return (0);
         else
             argv++;
     }
-    return (0);
+    return (1);
 }
 
-int check_if_double(t_node **a, int nbr)
+int check_if_double(t_node *a, int nbr)
 {
     while (a != NULL)
     {
-        if ((*a)->data == nbr)
+        if (a->data == nbr)
             return (1);
-        a = &((*a)->next);
+        a = a->next;
     }
     return (0);
 }
@@ -37,7 +44,7 @@ long    ft_atol(char *str)
         i++;
     }
     nbr = 0;
-    while (str[i] >= 0 && str[i] <= 9)
+    while (str[i] >= '0' && str[i] <= '9')
     {
         nbr = nbr * 10 + (str[i] - 48);
         i++;
@@ -45,7 +52,7 @@ long    ft_atol(char *str)
     return (nbr * sign);
 }
 
-int	count_stack_size(t_node **a)
+int	count_stack_size(t_node *a)
 {
 	int	i;
 
@@ -53,7 +60,7 @@ int	count_stack_size(t_node **a)
 	while (a != NULL)
 	{
 		i++;
-		a++;
+		a = a->next;
 	}
 	return (i);
 }

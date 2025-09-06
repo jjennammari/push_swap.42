@@ -4,23 +4,24 @@ void	create_stack(t_node **a, char **argv, int argc)
 {
 	long	nbr;
 	int	i;
+	int	args;
 
-	i = 1;
-	while (i <= argc)
+	i = argc - 1;
+	while (i > 0)
 	{
 		if (!check_if_number(argv[i]))
 			error_digit(a);
 		nbr = ft_atol(argv[i]);
-		if ((nbr <= -2147483648) || (nbr >= 2147483647))
+		if ((nbr < -2147483648) || (nbr > 2147483647))
 			error_int(a);
-		if (check_if_double(a, (int)nbr))
+		if (check_if_double(*a, (int)nbr))
 			error_double(a);
 		add_to_stack(a, (int)nbr);
-		i ++;
+		i--;
 	}
 }
 
-t_node  **add_to_stack(t_node **top, int nbr)
+void	add_to_stack(t_node **top, int nbr)
 {
 	t_node	*n1;
 	t_node  *new_node;
@@ -32,5 +33,4 @@ t_node  **add_to_stack(t_node **top, int nbr)
 	n1 = *top;
 	new_node->next = n1;
 	*top = new_node;
-	return (top);
 }
