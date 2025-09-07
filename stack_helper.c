@@ -19,13 +19,15 @@ int check_if_number(char *argv)
     return (1);
 }
 
-int check_if_double(t_node *a, int nbr)
+int check_if_double(int *arr, int nbr)
 {
-    while (a != NULL)
+	if (arr == NULL)
+		return (0);
+    while (*arr)
     {
-        if (a->data == nbr)
+        if (*arr == nbr)
             return (1);
-        a = a->next;
+        arr++;
     }
     return (0);
 }

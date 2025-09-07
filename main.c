@@ -9,5 +9,5 @@ int	main(int argc, char **argv)
 		return (NULL);
 	a = NULL;
 	b = NULL;
-	a = create_stack(a, argv, argc);
+	create_stack(&a, argv, argc);
 }

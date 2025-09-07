@@ -15,12 +15,18 @@ typedef struct s_node
 void	create_stack(t_node **a, char **argv, int argc);
 void	add_to_stack(t_node **top, int nbr);
 
+		/*\ array_helper.c \*/
+
+void    create_array(int *arr, char **argv, int size);
+void    sort_array(int *arr, int size);
+int 	get_index(int *arr, char **argv, int size);
+
 		/*\ stack_helper.c \*/
 
-int check_if_number(char *argv);
-int check_if_double(t_node *a, int nbr);
+int 	check_if_number(char *argv);
+int		check_if_double(int *arr, int nbr);
 long    ft_atol(char *str);
-int	count_stack_size(t_node *a);
+int		count_stack_size(t_node *a);
 
 		/*\ error_exit.c \*/
 
@@ -28,6 +34,7 @@ void	error_int(t_node **a);
 void    error_digit(t_node **a);
 void    error_double(t_node **a);
 void    error_malloc(t_node **a);
+void    error_array(int *array, int size);
 
 	/*\ stack operation functions \*/
 

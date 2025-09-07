@@ -6,20 +6,62 @@ PUSH_SWAP
 
 				Files:
 					stack_helper.c: 
-									- Changed all while(a != NULL) to while (*a != NULL) because I need to dereferense to see if a points to null.
+								- Changed all while(a != NULL) to while (*a != NULL) because I need to dereferense to see if a points to null.
 
-									- check_if_number:
+								- check_if_number:
 										- Changed places with returnvalues 0 and 1, becaues if function is not successfull, it returns 0 or NULL, if successfull returns anything else.
+										- Added a check if number has - or + sign, and if there is double - or + sign
 
-						
+					error_exit.c
+								- Added *temp to be able to send stack instead of double pointer to count_stack_size. I don't want to send double pointer cause I am not modifying stack when
+									counting it but my error_exit function recieves double pointer to stack because it is freeing the nodes so directly modifying it.
+
+					create_stack.c
+							- In create_stack function,In create_stack function, cchanged from i = 1 to:
+										i = argc - 1, because I want to send the args from last to first to be able to add them into stack in correct order which is that the first argument
+										given is going to be at the top of stack when stack a is created.
+								- Changed create_stack and add_to_stack functions as voids cause I want to modify stack a directly in them. Also that's why they recieve a double pointer to 									stack instead of just t_node pointer
+
+					array_helper.c:
+							- Created functions to: create an array from argv's that were first checked to not include errors, then to sort it in ascending order and after get an index which
+								is corresponding to it's place in argv line - and then put all the indexes into stakc a.
+
+		GUESTIONS
+
+					1. What is the best way to find smallest number in an array?
+
+								ANSWER: Form of bubble sort?
+
+					2. How to convert digits to binary in c?
+
+								ANSWER: Take % 2 from the digit and quontent will be the next one to divide until it is 0 and modulo will be the presentation of the binary:
+										43 % 2 = 1
+										21 % 2 = 1
+										10 % 2 = 0
+										5 % 2 =  1
+										2 % 2 =  0
+										1 % 2 =  1
+								so: 43 base 10 is 101011 in binary
+							
 		LEARNED TODAY
+
+					- To be able to handle big binary numbers more efficiently, I can convert given args into an array, get their indexes in the array and sort them in their binary form:
+							1. Create an array: handle_array.c -> create_stack will do the error checks, create an array, send it to sort_array function for sorting and return it to create_									stack. 
+							2. Get the index of the numbers: handle_array.c -> get_index
+							?. 
+					- After creating the stack, need to check if the stack is already sorted
+					- If the stack is not sorted, I need to sort it
 
 	    TO DO NEXT
 
-                - Add a check to see, if in arguments there are two signs which is not okay, should error exit if this is true
+                - Add a check to see, if in arguments there are two signs which is not okay, should error exit if this is true // DONE
                 - Learn about lldb to be able to debug my program // DONE
-                - Change error messages back to just error
-                - Algorithm: radix or turk
+                - Delete functions printing different error messages in my error_exit.c file
+				- Create functions to insert argv's into an array and get their indexes so I can sort the index binary instead of the possible super long binaries from big digit numbers // 						DONE
+				- split
+				- Fix error functions
+                - Implement algorithm to use: radix
+				- Add function that calculates every stack operation and outputs it when program is launched
                 - Makefile
 
 

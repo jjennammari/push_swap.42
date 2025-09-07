@@ -79,3 +79,20 @@ void    error_malloc(t_node **a)
     write (1, "Error: malloc\n", 6);
     exit(1);
 }
+
+void	error_array(int *array, int size)
+{
+	int	i;
+
+	if (!*array)
+	{
+		while (size > 0)
+		{
+			free(array);
+			size--;
+			array++;
+		}
+	}
+	write (1, "Error: array\n", 13);
+	exit(1);
+}
