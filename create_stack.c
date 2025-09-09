@@ -14,6 +14,7 @@ void	create_stack(t_node **a, char **argv, int argc)
 	while (i > 0)
 	{
 		nbr = get_index(argv_array, argv, argc - 1);
+		// here change index to binary and send that to be new node
 		add_to_stack(a, (int)nbr);
 		i--;
 		argc--;

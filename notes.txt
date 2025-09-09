@@ -1,4 +1,77 @@
-6.9.
+9.9.
+
+PUSH_SWAP
+
+		TO DO
+                - Do functiont to change index to binary form and send to be added to stack a
+                        - Create an array that stores the incex value as binary
+                        - Malloc the size of WHAT (or fixed size of WHAT)? <- CHECK GUESTION NO 2.
+                        - Modulo the index with 2 until index = 0
+                        - Store the modulos (0 or 1) to an array
+                        - Either reverse the array or start adding from the end to beginning
+                        - Send a pointer from that array to add_to_stack function
+                - Sorting functions:
+                        - Tiny sort when under ? amount of numbers
+                        - Big sorting with ranix or counting sort
+                - Add pa and pb fuinctions that do nothing if stack a or stack b is empty, depending which we are pushing from. Check operation guidelines on subject
+                - Add sa and pa to do nothing if there is only one element. Check better at operation guidelines on subject
+                - Do split function
+                        - Add on my main int *argvs that will store the ints after split
+                        - if needed to do split, send argvs array to create_stack / if not, send the original argv
+                - Create only one error function for all and delete extra error functinos. Note that error_array is working incorrectly atm.
+                - In main function:
+                        - Check if the stack is already sorted
+                        - Do tiny sort and big sort algorithms
+                - Makefile
+                -  Do function that calculates all the stack operations
+
+
+8.9.
+
+PUSH_SWAP
+
+		LEARNED TODAY
+
+				RADIX SORT: is a linear sorting algorithm
+						LSD Radix sort:
+							1. get the max value of the array
+							2. start sorting from the least significant digit to most
+
+		GUESTIONS
+
+				1. What is the difference between radix sort and counting sort algorithms? Which one should be applying and why?
+
+				2. When creating a size to the array, should I first count the size of the binary, malloc that size to the array and then convert again to binary for adding the
+						binary values to the array? Or is there a way to count the binary size otherwise so I wouldn't have to count modulo twice? Or have fixed size array
+
+				3. How does bitwise operations work? Plus the logic of binary numbers formation?
+
+		TO DO
+				- Do functiont to change index to binary form and send to be added to stack a
+						- Create an array that stores the incex value as binary
+						- Malloc the size of WHAT (or fixed size of WHAT)? <- CHECK GUESTION NO 2.
+						- Modulo the index with 2 until index = 0
+						- Store the modulos (0 or 1) to an array
+						- Either reverse the array or start adding from the end to beginning
+						- Send a pointer from that array to add_to_stack function
+				- Sorting functions:
+						- Tiny sort when under ? amount of numbers
+						- Big sorting with ranix or counting sort
+				- Add pa and pb fuinctions that do nothing if stack a or stack b is empty, depending which we are pushing from. Check operation guidelines on subject
+				- Add sa and pa to do nothing if there is only one element. Check better at operation guidelines on subject
+				- Do split function
+						- Add on my main int *argvs that will store the ints after split
+						- if needed to do split, send argvs array to create_stack / if not, send the original argv
+				- Create only one error function for all and delete extra error functinos. Note that error_array is working incorrectly atm.
+				- In main function:
+						- Check if the stack is already sorted
+						- Do tiny sort and big sort algorithms
+				- Makefile
+				-  Do function that calculates all the stack operations
+			
+
+
+6-7.9.
 
 PUSH_SWAP
 
@@ -41,7 +114,7 @@ PUSH_SWAP
 										5 % 2 =  1
 										2 % 2 =  0
 										1 % 2 =  1
-								so: 43 base 10 is 101011 in binary
+														so: 43 base 10 is 101011 in binary
 							
 		LEARNED TODAY
 
