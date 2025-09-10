@@ -2,17 +2,25 @@
 
 PUSH_SWAP
 
+		LEARNED TODAY
+
+					- I dont need to build stack a with binary nimbers but I can use bitwise operations to access the binary form when needed. This way will use less memory.
+		
+		GUESTIONS
+
+				1. How does the bitwise operations work?
+
+							ANSWER
+								- An integer digits are already stored in the memory at their binary forms. With bitwise operations, I can peek the binary form and use it when needed
+								- I can use shift right (>>) to move into the binary number that I want to compare
+								_ Then use & x to mask the values to compare with only that specific one
+
 		TO DO
-                - Do functiont to change index to binary form and send to be added to stack a
-                        - Create an array that stores the incex value as binary
-                        - Malloc the size of WHAT (or fixed size of WHAT)? <- CHECK GUESTION NO 2.
-                        - Modulo the index with 2 until index = 0
-                        - Store the modulos (0 or 1) to an array
-                        - Either reverse the array or start adding from the end to beginning
-                        - Send a pointer from that array to add_to_stack function
+				- Learn bitwise operations and how I can use them in radix to get the bit form of the number when sorting the stack // DONE
                 - Sorting functions:
-                        - Tiny sort when under ? amount of numbers
-                        - Big sorting with ranix or counting sort
+						- Do function to count the size of the biggest binary number, WHY THOUGH? Something to do with searching the max nbr before sorting
+                        - Tiny sort when five or less numbers
+                        - Big sorting with radix or counting sort
                 - Add pa and pb fuinctions that do nothing if stack a or stack b is empty, depending which we are pushing from. Check operation guidelines on subject
                 - Add sa and pa to do nothing if there is only one element. Check better at operation guidelines on subject
                 - Do split function
@@ -44,7 +52,8 @@ PUSH_SWAP
 				2. When creating a size to the array, should I first count the size of the binary, malloc that size to the array and then convert again to binary for adding the
 						binary values to the array? Or is there a way to count the binary size otherwise so I wouldn't have to count modulo twice? Or have fixed size array
 
-				3. How does bitwise operations work? Plus the logic of binary numbers formation?
+							ANSWER:
+								 - I dont need to build stack a with binary nimbers but I can use bitwise operations to access the binary form when needed. This way will use less memory.
 
 		TO DO
 				- Do functiont to change index to binary form and send to be added to stack a
