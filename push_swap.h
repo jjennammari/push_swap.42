@@ -3,11 +3,16 @@
 
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h> // DELETE BEFORE RETURNING
 
 typedef struct s_node
 {
 	int	data;
 	struct s_node	*next;
+	struct s_node	*temp;
+	struct s_node	*first_node;
+	struct s_node	*second_node;
+	struct s_node	*last_node;
 } t_node;
 
 		/*\ create_stack.c \*/
@@ -35,6 +40,18 @@ void    error_digit(t_node **a);
 void    error_double(t_node **a);
 void    error_malloc(t_node **a);
 void    error_array(int *array, int size);
+
+		/*\ tiny_sort_stack.c \*/
+
+void	tiny_sort(t_node *a, t_node *b);
+void	sort_max_five(t_node *a, t_node *b, int size);
+void	sort_max_three(t_node *stack);
+
+		/*\ sort_helper.c \*/
+
+int get_max_value(t_node *stack);
+int	get_min_value(t_node *stack);
+t_node  *find_last_node(t_node *stack);
 
 	/*\ stack operation functions \*/
 

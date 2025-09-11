@@ -1,3 +1,53 @@
+10.9.
+
+PUSH_SWAP
+
+		CODE TODAY
+
+				tiny_sort_stack.c
+						- sort_three: this will sort the stack if there are only three numbers
+								- Get the max value
+								- Get the last node pointer
+										- If max is first -> ra
+										- If max is (last) -> do nothing to max
+								- Check if first is bigger than second
+										- If first > second -> sa
+										- If first < second -> do nothing, stack is sorted
+
+				sort_helper.c
+						- Function to find_max_value
+
+		GUESTIONS
+
+				1. In my stack operation functions, should I only recieve one pointer cause I am not modifying the values in nodes, just moving nodes?
+
+				2. In my tiny_sort_stack function, should I recieve only one pointer to stack cause not modifying the values of nodes?
+
+				3. How should I check the values and compare them to see, which operations I need to do to know, what sorting operations to use
+				
+				4. Do I need to malloc my last node in find_last_node function?
+
+        TO DO
+				- Add pa and pb fuinctions that do nothing if stack a or stack b is empty, depending which we are pushing from // DONE
+				- Add sa and sb and ss to do nothing if there is only one element. Check better at operation guidelines on subject // DONE
+				- Same with rotate and reverse rotate functions: do nothing if no elements or only one element // DONE
+				- Sorting functions:
+                        - Do function to count the size of the biggest binary number, WHY THOUGH? Something to do with searching the max nbr before sorting
+								- Create a sort_helper.c where I have functions to look the max value, find last node
+                        - Tiny sort when five or less numbers
+                        - Big sorting with radix or counting sort
+                - Do split function
+                        - Add on my main int *argvs that will store the ints after split
+                        - if needed to do split, send argvs array to create_stack / else send the original argv
+                - Create only one error function for all and delete extra error functinos. Note that error_array is working incorrectly atm.
+                - In main function:
+                        - Check if the stack is already sorted - WHAT DO I PRINT IF TRUE?
+                        - Do tiny sort and big sort algorithms
+                - Makefile
+                -  Do function that calculates all the stack operations
+				- Maybe need to send in my swap.c functions & of a and &b when counting the stack? Check later if errors because of this
+
+
 9.9.
 
 PUSH_SWAP

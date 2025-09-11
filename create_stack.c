@@ -22,14 +22,14 @@ void	create_stack(t_node **a, char **argv, int argc)
 
 void	add_to_stack(t_node **top, int nbr)
 {
-	t_node	*n1;
+	t_node	*temp;
 	t_node  *new_node;
 
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
 		error_malloc(top);
 	new_node->data = nbr;
-	n1 = *top;
-	new_node->next = n1;
+	temp = *top;
+	new_node->next = temp;
 	*top = new_node;
 }

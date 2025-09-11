@@ -57,12 +57,14 @@ long    ft_atol(char *str)
 int	count_stack_size(t_node *a)
 {
 	int	i;
+	t_node	*temp;
 
+	temp = a;
 	i = 0;
-	while (a != NULL)
+	while (temp != NULL)
 	{
 		i++;
-		a = a->next;
+		temp = temp->next;
 	}
 	return (i);
 }

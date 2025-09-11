@@ -14,19 +14,25 @@ void	swap(t_node **top)
 
 void	swap_a(t_node **a)
 {
-	swap(&a);
+	if (!a || !(*a)->next)
+		return ;
+	swap(a);
 	write (1, "sa\n", 3);
 }
 
 void	swap_b(t_node **b)
 {
-	swap(&b);
+	if (!b || !(*b)->next)
+		return ;
+	swap(b);
 	write (1, "sb\n", 3);
 }
 
 void	swap_ab(t_node **a, t_node **b)
 {
-	swap(&a);
-	swap(&b);
+	if (!a || !b || !(*a)->next || !(*b)->next)
+		return ;
+	swap(a);
+	swap(b);
 	write (1, "ss\n", 3);
 }
