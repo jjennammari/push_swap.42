@@ -15,6 +15,10 @@ typedef struct s_node
 	struct s_node	*last_node;
 } t_node;
 
+ 	// DELETE BEFORE RETURNING
+
+void	print_stack(t_node *a);
+
 		/*\ create_stack.c \*/
 
 void	create_stack(t_node **a, char **argv, int argc);
@@ -59,7 +63,7 @@ void    push(t_node **dest, t_node **src);
 void    push_a(t_node **a, t_node **b);
 void    push_b(t_node **a, t_node **b);
 
-void    reverse_rotate(t_node **top);
+void    reverse_rotate(t_node **stack);
 void    reverse_rotate_a(t_node **a);
 void    reverse_rotate_b(t_node **a);
 void    reverse_rotate_ab(t_node **a, t_node **b);

@@ -17,6 +17,7 @@ void	sort_max_three(t_node *stack)
 	t_node	*temp;
 	t_node	*last_node;
 
+	temp = stack->next; // temp == 2 (no 4) this is the middle value before rra
 	max = get_max_value(stack);
 	last_node = find_last_node(stack);
 	if (last_node->data != max)
@@ -24,14 +25,8 @@ void	sort_max_three(t_node *stack)
 		if (stack->data == max)
 			rotate_a(&stack);
 		else if (stack->data != max) // stack == 1 (no 2) and points to midde == 2 (no 4)
-		{
-			printf("Stack before rra: %d\n", stack->data);
-			printf("Temp before rra: %d\n", temp->data);
 			reverse_rotate_a(&stack); // after this, middle = 1 (no 2)
-			printf("Stack after rra: %d\n", stack->data);
 			temp = stack->next;
-			printf("Temp after rearranging: %d\n", temp->data);
-		}
 	}
 	if (stack->data > temp->data) // stack == 0 (no 2) current middle && temp == 2 (no 4) current last
 		swap_a(&stack);
@@ -46,7 +41,7 @@ void	sort_max_five(t_node *a, t_node *b, int size)
 	while (size > 3)
 	{
 		min = get_min_value(a);
-		while (first_node->data != a->data)
+		while (first_node->data != a->data) // THEY ARE EQUAL EVEN THOUGH SHOULD NOT BE
 		{
 			if (first_node->next->data == a->data || first_node->next->next->data == a->data)
 				rotate_a(&a);

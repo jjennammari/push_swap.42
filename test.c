@@ -17,13 +17,7 @@ int	main(int argc, char **argv)
 	b = NULL;
 	create_stack(&a, argv, argc);
 	size = count_stack_size(a);
-	temp = a;
-	while (size > 0)
-	{
-		printf("%d\n", temp->data);
-		temp = temp->next;
-		size--;
-	}
 	tiny_sort(a, b);
+	free(a);
 	return (0);
 }

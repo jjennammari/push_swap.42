@@ -6,7 +6,7 @@ void	reverse_rotate(t_node **top)
 	t_node	*second_last;
 	t_node	*last_node;
 
-	n2 = (*top)->next;
+	n2 = *top;
 	second_last = n2;
 	while (second_last->next->next != NULL)
 		second_last = second_last->next;

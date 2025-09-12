@@ -1,3 +1,35 @@
+11.9.
+
+PUSH_SWAP
+
+		CODE TODAY
+
+				- reverse_rotate
+						- Corrected logic, was rejusting last pointer to point old second element and not the new second element. Changed to point to the old fist								 element which is the new second.
+
+
+        TO DO
+				- Put to do notes up to date, and stop being lazy with them on the first place. Reserve time for this everyday after studies !!!
+				- Answer guestions
+                - Sorting functions:
+                        - Do function to count the size of the biggest binary number, WHY THOUGH? Something to do with searching the max nbr before sorting
+                                - Create a sort_helper.c where I have functions to look the max value, find last node
+                        - Tiny sort when five or less numbers
+							- Sort three is working
+							- Sort five is wrong, check comment on the file
+                        - Big sorting with radix or counting sort
+                - Do split function
+                        - Add on my main int *argvs that will store the ints after split
+                        - if needed to do split, send argvs array to create_stack / else send the original argv
+                - Create only one error function for all and delete extra error functinos. Note that error_array is working incorrectly atm.
+                - In main function:
+                        - Check if the stack is already sorted - WHAT DO I PRINT IF TRUE?
+                        - Do tiny sort and big sort algorithms
+                - Makefile
+                -  Do function that calculates all the stack operations
+                - Maybe need to send in my swap.c functions & of a and &b when counting the stack? Check later if errors because of this
+
+
 10.9.
 
 PUSH_SWAP
@@ -16,6 +48,7 @@ PUSH_SWAP
 
 				sort_helper.c
 						- Function to find_max_value
+						- Function to return a pointer to min value
 
 		GUESTIONS
 
@@ -99,11 +132,13 @@ PUSH_SWAP
 
 				1. What is the difference between radix sort and counting sort algorithms? Which one should be applying and why?
 
-				2. When creating a size to the array, should I first count the size of the binary, malloc that size to the array and then convert again to binary for adding the
-						binary values to the array? Or is there a way to count the binary size otherwise so I wouldn't have to count modulo twice? Or have fixed size array
+				2. When creating a size to the array, should I first count the size of the binary, malloc that size to the array and then convert again to binary
+					for adding the binary values to the array? Or is there a way to count the binary size otherwise so I wouldn't have to count modulo twice?
+					Or have fixed size array
 
 							ANSWER:
-								 - I dont need to build stack a with binary nimbers but I can use bitwise operations to access the binary form when needed. This way will use less memory.
+								 - I dont need to build stack a with binary nimbers but I can use bitwise operations to access the binary form when needed. This
+								 	way will use less memory.
 
 		TO DO
 				- Do functiont to change index to binary form and send to be added to stack a
@@ -116,7 +151,8 @@ PUSH_SWAP
 				- Sorting functions:
 						- Tiny sort when under ? amount of numbers
 						- Big sorting with ranix or counting sort
-				- Add pa and pb fuinctions that do nothing if stack a or stack b is empty, depending which we are pushing from. Check operation guidelines on subject
+				- Add pa and pb fuinctions that do nothing if stack a or stack b is empty, depending which we are pushing from. Check operation guidelines on
+					subject
 				- Add sa and pa to do nothing if there is only one element. Check better at operation guidelines on subject
 				- Do split function
 						- Add on my main int *argvs that will store the ints after split
