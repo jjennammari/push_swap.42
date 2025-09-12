@@ -16,8 +16,9 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	create_stack(&a, argv, argc);
-	size = count_stack_size(a);
-	tiny_sort(a, b);
+	print_stack(a);
+	tiny_sort(&a, &b);
+	print_stack(a);
 	free(a);
 	return (0);
 }

@@ -1,62 +1,39 @@
 #include "push_swap.h"
 
-void    tiny_sort(t_node *a, t_node *b)
+void    tiny_sort(t_node **a, t_node **b)
 {
     int stack_size;
 
-    stack_size = count_stack_size(a);
+    stack_size = count_stack_size(*a);
     if (stack_size <= 3)
         sort_max_three(a);
     else if (stack_size >= 4 && stack_size <= 5)
         sort_max_five(a, b, stack_size);
 }
 
-void	sort_max_three(t_node *stack)
+void	sort_max_three(t_node **stack)
 {
-	int		max;
+	int	max;
 	t_node	*temp;
 	t_node	*last_node;
 
-	temp = stack->next; // temp == 2 (no 4) this is the middle value before rra
 	max = get_max_value(stack);
 	last_node = find_last_node(stack);
 	if (last_node->data != max)
 	{
-		if (stack->data == max)
-			rotate_a(&stack);
-		else if (stack->data != max) // stack == 1 (no 2) and points to midde == 2 (no 4)
-			reverse_rotate_a(&stack); // after this, middle = 1 (no 2)
-			temp = stack->next;
+		if ((*stack)->data == max)
+			rotate_a(stack);
+		else if ((*stack)->data != max)
+			reverse_rotate_a(stack);
 	}
-	if (stack->data > temp->data) // stack == 0 (no 2) current middle && temp == 2 (no 4) current last
-		swap_a(&stack);
+	temp = (*stack)->next;
+	if ((*stack)->data > temp->data)
+		swap_a(stack);
 }
 
-void	sort_max_five(t_node *a, t_node *b, int size)
+void	sort_max_five(t_node **a, t_node **b, int size)
 {
-	int	min;
-	t_node	*first_node;
+	t_node	*min;
 
-	first_node = a;
-	while (size > 3)
-	{
-		min = get_min_value(a);
-		while (first_node->data != a->data) // THEY ARE EQUAL EVEN THOUGH SHOULD NOT BE
-		{
-			if (first_node->next->data == a->data || first_node->next->next->data == a->data)
-				rotate_a(&a);
-			else
-				reverse_rotate(&a);
-			a = a->next;
-		}
-		push_b(&a, &b);
-		size--;
-	}
-	sort_max_three(a);
-	sort_max_three(b);
-	while (size < 5)
-	{
-		push_a(&a, &b);
-		size++;
-	}
+	min = get_min_value(a);
 }

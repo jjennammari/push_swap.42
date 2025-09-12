@@ -18,7 +18,7 @@ int	main(int argc, char **argv)
 	t_node	*b;
 
 	if ((argc == 1) || !(argv[1][0]))
-		return (NULL);
+		return (0);
 	a = NULL;
 	b = NULL;
 	create_stack(&a, argv, argc);

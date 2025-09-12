@@ -1,15 +1,15 @@
 #include "push_swap.h"
 
-void	swap(t_node **top)
+void	swap(t_node **stack)
 {
 	t_node	*n1;
 	t_node	*n2;
 
-	n1 = *top;
+	n1 = *stack;
 	n2 = n1->next;
-	n1->next = n2;
+	n1->next = n2->next;
 	n2->next = n1;
-	*top = n2;
+	*stack = n2;
 }
 
 void	swap_a(t_node **a)
