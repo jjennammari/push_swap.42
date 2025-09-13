@@ -1,34 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   binary_helper.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jemustaj <jemustaj@student.42Porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/09/11 05:21:16 by jemustaj          #+#    #+#             */
-/*   Updated: 2025/09/13 22:07:34 by jemustaj         ###   ########.fr       */
+/*   Created: 2025/09/13 23:03:49 by jemustaj          #+#    #+#             */
+/*   Updated: 2025/09/13 23:06:47 by jemustaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+int	count_bits(int max)
 {
-	t_node	*a;
-	t_node	*b;
+	int	bits;
+	int	temp;
 
-	if ((argc == 1) || !(argv[1][0]))
-		return (0);
-	a = NULL;
-	b = NULL;
-	create_stack(&a, argv, argc);
-	if (stack is sorted) // STILL NEED TO MAKE THE FUNCTION TO CHECK THIS
-	//	write (1, "Stack is sorted\n", 16);
-	else
+	temp = max;
+	while (temp > 0)
 	{
-		if (stack_size > 1 && stack_size > 6)
-			tiny_sort(&a, &b);
-		else
-			big_sort(&a, &b);
+		temp = temp / 2;
+		bits++;
 	}
+	return (bits);
 }

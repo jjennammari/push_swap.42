@@ -1,3 +1,90 @@
+13.9.
+
+PUSH_SWAP
+
+		CODE TODAY
+
+				big_sort_stack.c
+
+        GUESTIONS (also previous unanswered questions)
+
+                1. What is the difference between radix sort and counting sort algorithms? Which one should be applying and why?
+						
+						ANSWER
+
+							- Both are stable sorting algorithms. It means that they maintain the position of the unsorted elements even after sorting.
+									- Input: Ka kb kc kB
+									- Stable: Ka kb kB kc
+									- Unstable: Ka kB kb kc
+
+							Counting sort counts the amount of each value, stores those into a seperate array and sorts the original list following that order
+									- Input: 3 0 6 0 4 3 0 2
+									- Frequency array: (0)3 (1)0 (2)1 (3)2 (4)1 (5)0 (6)1
+									- Element places in the new order: (0)3 (1)3 (2)4 (3)6 (4)7 (5)7 (6)8
+									- New array: 00023346
+
+							Radix sort compares the values with each others starting either MSD or LSD and goes forward like that through the whole numbers step by step. It
+							divides each number into different buckets (same ones go together) and then returns them back together in ascending order.
+
+							I want to apply radix because it will be more efficient with bigger numbers and when there is a lot of numbers.
+
+                2. In my stack operation functions, should I only recieve one pointer cause I am not modifying the values in nodes, just moving nodes?
+                3. In my tiny_sort_stack function, should I recieve only one pointer to stack cause not modifying the values of nodes?
+
+						ANSWER
+							- I should use double pointers because otherwise I can't reach elements to modify the pointers into pointing new elements in the stack.
+
+                4. How should I check the values and compare them to see, which operations I need to do to know, what sorting operations to use?
+
+						ANSWER
+							- I can store the indexes of the values into my stack, access their binary form when sorting and compare them like that with radix sort.
+
+                5. Do I need to malloc my last node in find_last_node function?
+
+						ANSWER
+							- I should not! Point is to find the last node and return pointer to that place. If I use malloc, I would create a new node which is not connected
+								to the same list and then mess up my program with returning an empty node and possible leaks.
+
+                6. What variables should I add to my struct and what I should leave out of it?
+
+						ANSWER
+							- I should add into my struct all variables that are related to my stack. Take more time to read about this and implement into my program.
+							- So far I understood that if I declare size in my struct, I can calculate it once in my program and then use it or local copy of it without needing
+								to always count it again. This will make a difference in the time complexity.
+							- Also when passing a struct head pointers, I can use double pointers. But this is still unclear to me and I should read more about it.
+
+        TO DO
+                - Answer guestions // DONE
+                - Sorting function:
+                        - Big sorting with radix or counting sort
+								1. Find the max value of the stack // DONE
+                        		2. Count max value's bit amount and put into int binary_size // DONE
+										- max/2 while max > 0
+                   			    3. While (binary_size > bit_place) (bit_place starts from 1 so this will skip the last, NEED TO CHANGE LOGIC)
+								? SHOULD I USE TEMP OR STACK A DIRECTLY ?
+                       			4. Access the element's data's binary version // DONE
+                       			5. If the nbr is 0 => push to b / If the nbr is 1 => move to the next element's value and check it in the same binary_size place
+                       			6. When we have checked all the element's value's in the place of binary_size:
+										- push back to stack a
+										- move to the next bite_place and do the same
+                       			7. Should I add 0 in the value places if the value "is out of numbers"? How?
+                - Do split function
+                        - Add on my main int *argvs that will store the ints after split
+                        - if needed to do split, send argvs array to create_stack / else send the original argv
+                - Create only one error function for all and delete extra error functinos. Note that error_array is working incorrectly atm.
+                - In main function:
+                        - Check if the stack is already sorted - WHAT DO I PRINT IF TRUE?
+                                - Go through the stack and compare always if the previous nbr is smaller, if not - stack is not sorted
+                                - Function should return 0 or 1, depending if it is sorted or not
+                        - Do tiny sort and big sort algorithms
+				- Study and use struct in my program correctly and efficiently
+                - Makefile
+                -  Do function that calculates all the stack operations
+                - Maybe need to send in my swap.c functions & of a and &b when counting the stack? Check later if errors because of this
+                - Add headers to all my functions
+				- Delete my find_last_node function and change to always get second last and assing last = second_last->next?
+
+
 12.9.
 
 PUSH_SWAP
