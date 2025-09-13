@@ -50,6 +50,7 @@ void    error_array(int *array, int size);
 void	tiny_sort(t_node **a, t_node **b);
 void	sort_max_five(t_node **a, t_node **b, int size);
 void	sort_max_three(t_node **stack);
+void	push_to_b(t_node **a, t_node **b, int min);
 
 		/*\ sort_helper.c \*/
 

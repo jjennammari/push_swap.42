@@ -33,7 +33,36 @@ void	sort_max_three(t_node **stack)
 
 void	sort_max_five(t_node **a, t_node **b, int size)
 {
-	t_node	*min;
+	int	min;
+	int	counter;
 
-	min = get_min_value(a);
+	counter = 0;
+	while (size > 3)
+	{
+		min = get_min_value(a);
+		push_to_b(a, b, min);
+		size--;
+		counter++;
+	}
+	sort_max_three(a);
+	while (counter > 0)
+	{
+		push_a(a, b);
+		counter--;
+	}
+}
+
+void	push_to_b(t_node **a, t_node **b, int min)
+{
+	t_node	*second_last;
+
+	second_last = get_secondlast_node(a);
+	while ((*a)->data != min)
+	{
+		if ((second_last->data == min) || (second_last->next->data == min))
+			reverse_rotate_a(a);
+		else
+			rotate_a(a);
+	}
+	push_b(a, b);
 }

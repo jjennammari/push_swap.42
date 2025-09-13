@@ -23,5 +23,5 @@ void	push_b(t_node **a, t_node **b)
 	if (!*a)
 		return ;
 	push(b, a);
-	write (1, "pb\n", 1);
+	write (1, "pb\n", 3);
 }
