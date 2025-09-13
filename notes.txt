@@ -14,7 +14,7 @@ PUSH_SWAP
 
 				- Updated in sort_three temp = (*stack)->next also after ra operation
 
-				- Created functions to sort between 2-5 numbers:
+				- Created functions to sort between 2-5 numbers / tiny_sort_stack.c:
 						 - Sort two or three // DONE
                                     - sort 3 2 correctly // DONE
                                     - sort 4 3 2 correctly // DONE
@@ -30,14 +30,25 @@ PUSH_SWAP
                                     5. sort stack A // DONE
                                     6. pa the smallest value(s) // DONE
 
+		GUESTIONS
+
+				1. What variables should I add to my struct and what I should leave out of it?
+
 		TO DO
                 - Answer guestions
                 - Sorting functions:
                         - Create a sort_helper.c where I have functions to helo sorting the stack // DONE
                         - Tiny sort when five or less numbers // DONE
-                       		- Sort two or three // DONE
-                            - Sort four or five // DONE
+                       			- Sort two or three // DONE
+                            	- Sort four or five // DONE
                         - Big sorting with radix or counting sort
+								1. Count the amount of binary numbers in the biggest number and put to int binary_size
+								2. Using bitwise operations:
+										- if nbr == 0: pb
+										- if nbr == 1: move to the next element's nbr
+								3. When divided, push all back from B to A
+								4. Move to the next binary place and repeat until binary_size is 0
+								5. Should I some way add zeros if some binary numbers have more numbers than the others?
                 - Do split function
                         - Add on my main int *argvs that will store the ints after split
                         - if needed to do split, send argvs array to create_stack / else send the original argv
@@ -45,10 +56,12 @@ PUSH_SWAP
                 - In main function:
                         - Check if the stack is already sorted - WHAT DO I PRINT IF TRUE?
 								- Go through the stack and compare always if the previous nbr is smaller, if not - stack is not sorted
+								- Function should return 0 or 1, depending if it is sorted or not
                         - Do tiny sort and big sort algorithms
                 - Makefile
                 -  Do function that calculates all the stack operations
                 - Maybe need to send in my swap.c functions & of a and &b when counting the stack? Check later if errors because of this
+				- Add headers to all my functions
 
 
 11.9.

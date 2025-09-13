@@ -22,5 +22,13 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	create_stack(&a, argv, argc);
-	// check if stack is already sorted, print stack is sorted?
+//	if (stack is sorted)
+	//	write (1, "Stack is sorted\n", 16);
+	else
+	{
+		if (stack_size > 1 && stack_size > 6)
+			tiny_sort(&a, &b);
+		else
+			big_sort(&a, &b);
+	}
 }
