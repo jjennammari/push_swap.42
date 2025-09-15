@@ -16,8 +16,13 @@ int	main(int argc, char **argv)
 	a = NULL;
 	b = NULL;
 	create_stack(&a, argv, argc);
+	write (1, "Stack unsorted: \n", 17);
 	print_stack(a);
-	tiny_sort(&a, &b);
+	write (1, "\n", 1);
+	write (1, "Stack sorting operations: \n", 27);
+	big_sort(&a, &b);
+	write (1, "\n", 1);
+	write (1, "Stack sorted: \n", 15);
 	print_stack(a);
 	free(a);
 	return (0);

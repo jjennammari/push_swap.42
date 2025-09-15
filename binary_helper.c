@@ -18,6 +18,7 @@ int	count_bits(int max)
 	int	temp;
 
 	temp = max;
+	bits = 0;
 	while (temp > 0)
 	{
 		temp = temp / 2;

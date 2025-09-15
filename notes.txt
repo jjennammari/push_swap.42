@@ -1,3 +1,46 @@
+14.9.
+
+PUSH_SWAP
+
+		GUESTIONS
+		
+				1. Should I add 0 in the value places if the value "is out of numbers"?
+
+        TO DO
+				- Answer guestion and write about binary and other stuff I learned/realized today
+                - Sorting function: // DONE
+                        - Big sorting with radix or counting sort // DONE
+                                1. Find the max value of the stack // DONE
+                                2. Count max value's bit amount and put into int binary_size // DONE
+                                        - max/2 while max > 0 // DONE
+                                3. While (binary_size > bite_place) // DONE
+										- while stack A is not NULL // DONE
+										- Check the binary's bit: // DONE
+												- If bit == 1: continue // DONE
+												- If bit == 0: // DONE
+														- Move the element to top // DONE
+														- Push to B // DONE
+                                6. When we have checked all the element's value's in the place of binary_size: // DONE
+                                        - push back to stack a // DONE
+                                        - move to the next bite_place and do the same // DONE
+				- Do proper tests for big and small sorts
+				- Function to calculate the stack operations made OR create struct variable operation_counter and print that in my main?
+                - Do split function
+                        - Add on my main int *argvs that will store the ints after split
+                        - if needed to do split, send argvs array to create_stack / else send the original argv
+                - Create only one error function for all and delete extra error functinos. Note that error_array is working incorrectly atm.
+                - In main function:
+                        - Check if the stack is already sorted - WHAT DO I PRINT IF TRUE?
+                                - Go through the stack and compare always if the previous nbr is smaller, if not - stack is not sorted
+                                - Function should return 0 or 1, depending if it is sorted or not
+                        - Do tiny sort and big sort algorithms
+                - Study and use struct in my program correctly and efficiently
+                - Makefile
+                - Maybe need to send in my swap.c functions & of a and &b when counting the stack? Check later if errors because of this
+                - Add headers to all my functions
+                - Delete my find_last_node function and change to always get second last and assing last = second_last->next?
+
+
 13.9.
 
 PUSH_SWAP

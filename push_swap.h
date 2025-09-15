@@ -45,6 +45,15 @@ void    error_double(t_node **a);
 void    error_malloc(t_node **a);
 void    error_array(int *array, int size);
 
+		/*\ big_sort_stack.c \*/
+
+void	big_sort(t_node **a, t_node **b);
+void	move_to_top(t_node **a, int value);
+
+		/*\ binary_helper.c \*/
+
+int	count_bits(int max);
+
 		/*\ tiny_sort_stack.c \*/
 
 void	tiny_sort(t_node **a, t_node **b);
