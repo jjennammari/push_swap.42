@@ -15,7 +15,8 @@
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h>
+# include <stdbool.h>
+# include "libft/libft.h"
 
 typedef struct s_node
 {
@@ -28,19 +29,14 @@ typedef struct s_node
 	struct s_node	*last_node;
 } t_node;
 
- 	// DELETE BEFORE RETURNING
-void	print_stack(t_node *stack);
-
-void	print_stack(t_node *a);
-
 		/*\ create_stack.c \*/
 
-void	create_stack(t_node **a, char **argv, int argc);
+void	create_stack(t_node **a, char **argv, int argc, bool splitted);
 void	add_to_stack(t_node **top, int nbr);
 
 		/*\ array_helper.c \*/
 
-void    create_array(int *arr, char **argv, int size);
+void    create_array(int *arr, char **argv, int size, bool splitted);
 void    sort_array(int *arr, int size);
 int 	get_index(int *arr, char **argv, int size);
 
@@ -55,7 +51,7 @@ int		count_argv_size(char **argv);
 		/*\ error_exit.c \*/
 
 void    error_malloc(t_node **a);
-void    error_array(int *array, int size);
+void    error_array(int *array, char **argv, bool splitted);
 
 		/*\ big_sort_stack.c \*/
 

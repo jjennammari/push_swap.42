@@ -12,25 +12,21 @@
 
 #include "push_swap.h"
 
-void	create_array(int *arr, char **argv, int size)
+void	create_array(int *arr, char **argv, int size, bool splitted)
 {
 	int	nbr;
 	int	i;
 
-/*	if ((size + 1) == 2)
-		i = 0;
-	else
-		i = 1;*/
 	i = 0;
 	while (i < size)
 	{
 		if (!check_if_number(argv[i]))
-			error_array(arr, size);
+			error_array(arr, argv, splitted);
 		nbr = ft_atol(argv[i]);
 		if ((nbr < -2147483648) || (nbr > 2147483647))
-			error_array(arr, size);
+			error_array(arr, argv, splitted);
 		if (check_if_double(arr, (int)nbr))
-			error_array(arr, size);
+			error_array(arr, argv, splitted);
 		arr[i] = (int)nbr;
 		i++;
 	}

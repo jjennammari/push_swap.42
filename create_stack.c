@@ -12,7 +12,7 @@
 
 #include "push_swap.h"
 
-void	create_stack(t_node **a, char **argv, int argc)
+void	create_stack(t_node **a, char **argv, int argc, bool splitted)
 {
 	long	nbr;
 	int		i;
@@ -21,7 +21,7 @@ void	create_stack(t_node **a, char **argv, int argc)
 	argv_array = malloc(sizeof(int) * argc - 1);
 	if (!argv_array)
 		exit(1);
-	create_array(argv_array, argv, argc - 1);
+	create_array(argv_array, argv, argc - 1, splitted);
 	i = argc - 1;
 	while (i > 0)
 	{

@@ -31,16 +31,21 @@ void    error_malloc(t_node **a)
     exit(1);
 }
 
-void	error_array(int *array, int size)
+void	error_array(int *array, char **argv, bool splitted)
 {
+    int	i;
     if (!array)
 	return ;
-    while (size > 0)
+    if (splitted)
     {
-        free(array);
-        size--;
-	array++;
+	i = 0;
+	while (argv[i])
+	{
+	    free(argv[i]);
+	    i++;
+	}
     }
+    free(array);
     write (1, "Error\n", 6);
     exit(1);
 }

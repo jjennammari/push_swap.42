@@ -20,7 +20,7 @@ RM = rm -rf
 
 SRC = array_helper.c big_sort_stack.c binary_helper.c create_stack.c \
 	  error_exit.c push.c reverse_rotate.c rotate.c \
-	  sort_helper.c stack_helper.c swap.c tiny_sort_stack.c main.c print_stack.c
+	  sort_helper.c stack_helper.c swap.c tiny_sort_stack.c main.c
 
 OBJS = $(SRC:.c=.o)
 
