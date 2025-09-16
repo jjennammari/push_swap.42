@@ -1,6 +1,39 @@
+16.9.
+
+PUSH_SWAP
+
+        GUESTIONS
+
+                1. Should I add 0 in the value places if the value "is out of numbers"?
+
+        TO DO
+				- Fix problem with argc size when recieving onyl 2 arguments
+                - Figure out my free functions correctyl
+                        - free stack A at the end // DONE
+                        - free my split after stack created
+                        - Free stack if it is already sorted and then exit
+                        - Free stack B at the end?
+                - Make sure all works:
+                        - Does not sort if already sorted // DONE
+						- Sorts with int args:
+								- Sort between 2-5 elements // DONE
+								- Sort more than 5 elements
+						- Sort with only two arguments:
+								- Sort between 2-5 elements
+								- Sort more than 5 elements
+                - Answer guestion and write about binary and other stuff I learned/realized today
+                - Study and use struct in my program correctly and efficiently
+                - Delete print_stack.c from header, files, makefile and stdio.h from header
+
+
 15.9.
 
 PUSH_SWAP
+
+		CODE TODAY
+
+				big_sort_stack.c
+						Made with logic to only use stack operations with bit 0's -> move those to top and push to b. Still too many operations so need to optimize.
 
         TO DO
 				- Figure out my free functions correctyl
