@@ -16,24 +16,24 @@ int check_if_number(char *argv)
 {
     while (*argv)
     {
-		if (*argv == '+' || *argv == '-')
-		{
-			if ((*argv) + 1 == '-' || (*argv) + 1 == '+')
-				return (0);
-			else
-				argv++;
-		}
-        if (!(*argv >= '0' && *argv <= '9'))
-            return (0);
-        else
-            argv++;
+    	if (*argv == '+' || *argv == '-')
+    	{
+    		if ((*argv) + 1 == '-' || (*argv) + 1 == '+')
+			return (0);
+	    	else
+    			argv++;
+    	}
+     if (!(*argv >= '0' && *argv <= '9'))
+        return (0);
+     else
+        argv++;
     }
     return (1);
 }
 
 int check_if_double(int *arr, int nbr)
 {
-	if (arr == NULL)
+    if (arr == NULL)
 		return (0);
     while (*arr)
     {
@@ -68,15 +68,25 @@ long    ft_atol(char *str)
 
 int	count_stack_size(t_node *a)
 {
-	int	i;
-	t_node	*temp;
+    int	i;
+    t_node	*temp;
 
-	temp = a;
-	i = 0;
-	while (temp != NULL)
-	{
-		i++;
-		temp = temp->next;
-	}
-	return (i);
+    temp = a;
+    i = 0;
+    while (temp != NULL)
+    {
+	i++;
+	temp = temp->next;
+    }
+    return (i);
+}
+
+int	count_argv_size(char **argv)
+{
+    int	    i;
+
+    i = 0;
+    while (argv[i] != NULL)
+	i++;
+    return (i);
 }

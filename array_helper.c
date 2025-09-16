@@ -17,12 +17,16 @@ void	create_array(int *arr, char **argv, int size)
 	int	nbr;
 	int	i;
 
+/*	if ((size + 1) == 2)
+		i = 0;
+	else
+		i = 1;*/
 	i = 0;
 	while (i < size)
 	{
-		if (!check_if_number(argv[i + 1]))
+		if (!check_if_number(argv[i]))
 			error_array(arr, size);
-		nbr = ft_atol(argv[i + 1]);
+		nbr = ft_atol(argv[i]);
 		if ((nbr < -2147483648) || (nbr > 2147483647))
 			error_array(arr, size);
 		if (check_if_double(arr, (int)nbr))
@@ -64,7 +68,7 @@ int	get_index(int *arr, char **argv, int size)
 	int	i;
 
 	i = 0;
-	while (arr[i] != (int)ft_atol(argv[size]))
+	while (arr[i] != (int)ft_atol(argv[size -1]))
 		i++;
 	return (i);
 }

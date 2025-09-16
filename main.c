@@ -18,6 +18,7 @@ int	main(int argc, char **argv)
 	t_node	*a;
 	t_node	*b;
 	int		stack_size;
+	char	**temp;
 
 	if ((argc == 1) || !(argv[1][0]))
 		return (0);
@@ -25,9 +26,9 @@ int	main(int argc, char **argv)
 	b = NULL;
 	if (argc == 2)
 	{
-		argv = ft_split(argv[1], ' ');
-		argc = count_stack_size((t_node *)(argv));
-		create_stack(&a, argv, argc);
+		temp = ft_split(argv[1], ' ');
+		argc = (count_argv_size(temp) + 1);
+		create_stack(&a, temp, argc);
 	}
 	else
 		create_stack(&a, argv, argc);
@@ -41,7 +42,7 @@ int	main(int argc, char **argv)
 		else
 			big_sort(&a, &b);
 	}
-	write (1, "\n", 1);
-	print_stack(a);
+//	write (1, "\n", 1);
+	//print_stack(a);
 	free(a);
 }

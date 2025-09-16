@@ -14,58 +14,29 @@
 
 void	big_sort(t_node **a, t_node **b)
 {
-	int		max;
-	int		bit_size;
-	int		bit_place;
-	t_node	*temp;
+	int	max;
+	int	bit_size;
+	int	bit_place;
+	int	stack_size;
+	int	i;
 
+	stack_size = count_stack_size(*a);
 	max = get_max_value(a);
 	bit_size = count_bits(max);
 	bit_place = 0;
-	while (bit_size > bit_place)
+	while (bit_place < bit_size)
 	{
-		temp = *a;
-		while (temp != NULL)
+		i = 0;
+		while (i < (stack_size - 1))
 		{
-			if (((temp->data >> bit_place) & 1) == 0)
-			{
-				move_to_top(a, temp->data);
+			if (((*a)->data >> bit_place & 1) == 0)
 				push_b(a, b);
-				temp = *a;
-			}
 			else
-				temp = temp->next;
+				rotate_a(a);
+			i++;
 		}
 		while (*b != NULL)
 			push_a(a, b);
 		bit_place++;
-	}
-}
-
-void	move_to_top(t_node **a, int value)
-{
-	int		size;
-	int		index;
-	t_node	*temp;
-
-	temp = *a;
-	size = count_stack_size(*a);
-	index = 0;
-	while (temp != NULL && temp->data != value)
-	{
-		index++;
-		temp = temp->next;
-	}
-	if (index == 0)
-		return ;
-	else if (index <= size / 2)
-	{
-		while ((*a)->data != value)
-			rotate_a(a);
-	}
-	else
-	{
-		while ((*a)->data != value)
-			reverse_rotate_a(a);
 	}
 }

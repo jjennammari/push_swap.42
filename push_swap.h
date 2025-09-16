@@ -50,6 +50,7 @@ int 	check_if_number(char *argv);
 int		check_if_double(int *arr, int nbr);
 long    ft_atol(char *str);
 int		count_stack_size(t_node *a);
+int		count_argv_size(char **argv);
 
 		/*\ error_exit.c \*/
 

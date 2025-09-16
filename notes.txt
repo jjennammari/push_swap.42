@@ -2,11 +2,26 @@
 
 PUSH_SWAP
 
+		CODE TODAY
+
+				big_sort_stack.c:
+						Changing the sorting logic cause before I was sorting wrong. Radix is a stable sort so I should not mix the order of nbrs but when I was moving the
+							element to the top (to push to B), I was also mixing the basic order of the numbers. I will change to rotate through the whole stack, if 0 I will
+							push to B, if 1 I will rotate.
+
         GUESTIONS
 
                 1. Should I add 0 in the value places if the value "is out of numbers"?
 
         TO DO
+				- Write new logic for my big sort: // DONE
+						- While bit_place < bit_size (the max value's size) // DONE
+								- While i < stack_size // DONE
+										Check if the bit of the value is 0 // DONE
+												- If yes, push to B // DONE
+												- If no, rotate the stack // DONE
+								- Push back to A // DONE
+								- Move to the next bit_place // DONE
 				- Fix problem with argc size when recieving onyl 2 arguments
                 - Figure out my free functions correctyl
                         - free stack A at the end // DONE
@@ -17,7 +32,9 @@ PUSH_SWAP
                         - Does not sort if already sorted // DONE
 						- Sorts with int args:
 								- Sort between 2-5 elements // DONE
-								- Sort more than 5 elements
+								- Sort more than 5 elements // DONE
+										- Sort 100 nbrs under 110 moves: 1172 moves atm
+										- Sort 500 nbrs under 8500 moves: 7285 moves atm // DONE
 						- Sort with only two arguments:
 								- Sort between 2-5 elements
 								- Sort more than 5 elements
