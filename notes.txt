@@ -1,3 +1,27 @@
+15.9.
+
+PUSH_SWAP
+
+        TO DO
+				- Figure out my free functions correctyl
+						- free stack A at the end // DONE
+						- free my split after stack created
+						- Free stack if it is already sorted and then exit
+						- Free stack B at the end?
+                - Answer guestion and write about binary and other stuff I learned/realized today
+                - Add headers to all my functions // DONE
+                - Makefile // DONE
+						- add libft with libft directory and add to push_swap makefile // DONE
+                - In main function:
+                        - Check if the stack is already sorted // DONE
+                                - Go through the stack and compare always if the previous nbr is smaller, if not - stack is not sorted // DONE
+                                - Function should return 0 or 1, depending if it is sorted or not // DONE
+				- Make sure all works:
+						- Does not sort if already sorted // DONE
+                - Study and use struct in my program correctly and efficiently
+				- Delete print_stack.c from header, files, makefile and stdio.h from header
+
+
 14.9.
 
 PUSH_SWAP

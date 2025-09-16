@@ -1,98 +1,46 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   error_exit.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jemustaj <jemustaj@student.42Porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/15 18:14:33 by jemustaj          #+#    #+#             */
+/*   Updated: 2025/09/15 18:14:35 by jemustaj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-
-void	error_int(t_node **a)
-{
-	long	i;
-	t_node	*temp;
-
-	temp = *a;
-	if (*a)
-	{
-		i = count_stack_size(temp);
-		while (i > 0)
-		{
-			free(*a);
-			i--;
-			a++;
-		}
-	}
-	write (1, "Error: int\n", 11);
-	exit(1);
-}
-
-void    error_digit(t_node **a)
-{
-    int i;
-	t_node	*temp;
-
-	temp = *a;
-    if (*a)
-    {
-        i = count_stack_size(temp);
-        while (i > 0)
-        {
-            free(*a);
-            i--;
-            a++;
-        }
-    }
-    write (1, "Error: digit\n", 13);
-    exit(1);
-}
-
-void    error_double(t_node **a)
-{
-    int i;
-	t_node	*temp;
-
-	temp = *a;
-    if (*a)
-    {
-        i = count_stack_size(temp);
-        while (i > 0)
-        {
-            free(*a);
-            i--;
-            a++;
-        }
-    }
-    write (1, "Error: double\n", 14);
-    exit(1);
-}
 
 void    error_malloc(t_node **a)
 {
     int i;
-	t_node	*temp;
+    t_node  *temp;
 
-	temp = *a;
-    if (*a)
+    if (!a)
+	return ;
+    temp = *a;
+    i = count_stack_size(temp);
+    while (a != NULL && i > 0)
     {
-        i = count_stack_size(temp);
-        while (i > 0)
-        {
-            free(*a);
-            i--;
-            a++;
-        }
+    	free(*a);
+    	i--;
+	a++;
     }
-    write (1, "Error: malloc\n", 6);
+    write (1, "Error\n", 6);
     exit(1);
 }
 
 void	error_array(int *array, int size)
 {
-	int	i;
-
-	if (!*array)
-	{
-		while (size > 0)
-		{
-			free(array);
-			size--;
-			array++;
-		}
-	}
-	write (1, "Error: array\n", 13);
-	exit(1);
+    if (!array)
+	return ;
+    while (size > 0)
+    {
+        free(array);
+        size--;
+	array++;
+    }
+    write (1, "Error\n", 6);
+    exit(1);
 }

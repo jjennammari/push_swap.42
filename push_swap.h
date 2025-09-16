@@ -1,13 +1,26 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   push_swap.h                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jemustaj <jemustaj@student.42Porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/15 18:14:58 by jemustaj          #+#    #+#             */
+/*   Updated: 2025/09/15 18:42:56 by jemustaj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
 # include <stdlib.h>
 # include <unistd.h>
-# include <stdio.h> // DELETE BEFORE RETURNING
+# include <stdio.h>
 
 typedef struct s_node
 {
-	int	data;
+	int				data;
+	int				stack_size;
 	struct s_node	*next;
 	struct s_node	*temp;
 	struct s_node	*first_node;
@@ -16,6 +29,7 @@ typedef struct s_node
 } t_node;
 
  	// DELETE BEFORE RETURNING
+void	print_stack(t_node *stack);
 
 void	print_stack(t_node *a);
 
@@ -39,9 +53,6 @@ int		count_stack_size(t_node *a);
 
 		/*\ error_exit.c \*/
 
-void	error_int(t_node **a);
-void    error_digit(t_node **a);
-void    error_double(t_node **a);
 void    error_malloc(t_node **a);
 void    error_array(int *array, int size);
 
@@ -67,6 +78,7 @@ int get_max_value(t_node **stack);
 int	get_min_value(t_node **stack);
 t_node  *find_last_node(t_node **stack);
 t_node	*get_secondlast_node(t_node **stack);
+int	check_stack_sorted(t_node **a);
 
 	/*\ stack operation functions \*/
 

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   array_helper.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: jemustaj <jemustaj@student.42Porto.com>    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/09/15 18:14:10 by jemustaj          #+#    #+#             */
+/*   Updated: 2025/09/15 18:14:14 by jemustaj         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	create_array(int *arr, char **argv, int size)
@@ -8,13 +20,13 @@ void	create_array(int *arr, char **argv, int size)
 	i = 0;
 	while (i < size)
 	{
-        if (!check_if_number(argv[i + 1]))
-            error_array(arr, size);
-        nbr = ft_atol(argv[i + 1]);
-        if ((nbr < -2147483648) || (nbr > 2147483647))
-            error_array(arr, size);
-        if (check_if_double(arr, (int)nbr))
-            error_array(arr, size);
+		if (!check_if_number(argv[i + 1]))
+			error_array(arr, size);
+		nbr = ft_atol(argv[i + 1]);
+		if ((nbr < -2147483648) || (nbr > 2147483647))
+			error_array(arr, size);
+		if (check_if_double(arr, (int)nbr))
+			error_array(arr, size);
 		arr[i] = (int)nbr;
 		i++;
 	}
