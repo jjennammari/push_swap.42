@@ -11,7 +11,6 @@ PUSH_SWAP
 
         GUESTIONS
 
-                1. Should I add 0 in the value places if the value "is out of numbers"?
 
         TO DO
 				- Check with school computer the linux checker and valgrind
@@ -44,7 +43,7 @@ PUSH_SWAP
 								- Sort more than 5 elements // DONE
                 - Answer guestion and write about binary and other stuff I learned/realized today
                 - Study and use struct in my program correctly and efficiently
-                - Delete print_stack.c from header, files, makefile and stdio.h from header
+                - Delete print_stack.c from header, files, makefile and stdio.h from header // DONE
 				- Learn about booleans
 
 
