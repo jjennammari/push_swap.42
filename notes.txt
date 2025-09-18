@@ -7,6 +7,7 @@ PUSH_SWAP
 				Checking with leaks: leaks --atExit --list -- ./push_swap
 						FOUND:
 								- 2 leaks for 3 nodes allocated
+										- FIXED: added free_stack function at the end of main to free the stack
 								- One leak for the array malloced when creatig the array in create_stack
 										- FIXED: free the argv_array right after all nodes added to stack A
 
@@ -33,14 +34,7 @@ PUSH_SWAP
 						- With 5 values: // DONE
 								- Argv2: prints OK // DONE
 								- Argv"": prints OK // DONE
-                - Figure out my free functions correctyl
-                        - free stack A at the end // DONE
-                        - free split if it was used, if problems when creating the array // DONE
-                        - free the array if problems when creating it // DONE
-                        - free my split after stack created
-                        - Free stack if it is already sorted and then exit
-                        - Free stack B at the end?
-                        - Should I free the temp in main (which is the array)
+                - Figure out my free functions correct // DONE
 				- Check that all functions are max 25 lines
 				- Delete: if check_stack_sorted, write: Stack is already sorted // DONE
                 - Make sure my make is not relinking
