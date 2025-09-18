@@ -52,6 +52,7 @@ PUSH_SWAP
                 - Answer guestion and write about binary value checking // DONE
                 - Study and use struct in my program correctly and efficiently
                 - Learn about booleans
+				- See if I can clean my files a bit to make more sense together
                 - Check norminette
 				- One last check with valgrind
 				- Last checks that the program actually works and compiles with checker
