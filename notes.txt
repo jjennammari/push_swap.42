@@ -6,10 +6,21 @@ PUSH_SWAP
 
 				Checking with leaks: leaks --atExit --list -- ./push_swap
 						FOUND:
-								- 2 leaks for 3 nodes allocated
+								- 2 leaks for 3 nodes
 										- FIXED: added free_stack function at the end of main to free the stack
+												- created temp pointer to access and walk through stack nodes
+												- created next pointer and  before freeing the node, I added the path to it to point the next
+													node to be freed
+												- after freeing all, assigned stack point to null just in case of trying to prevent accidental errors
 								- One leak for the array malloced when creatig the array in create_stack
 										- FIXED: free the argv_array right after all nodes added to stack A
+
+		GUESTIONS
+
+				1. Should I add 0 in the value places if the value "is out of numbers"?
+
+						ANSWER: no. C already stores all ints in binary and fills it with zeroes if the bit count is less than 32 bits. So I don't need to
+								padd them seperately with zeroes.
 
         TO DO
 				- Check the operations done: // DONE
@@ -35,13 +46,15 @@ PUSH_SWAP
 								- Argv2: prints OK // DONE
 								- Argv"": prints OK // DONE
                 - Figure out my free functions correct // DONE
-				- Check that all functions are max 25 lines
+				- Check that all functions are max 25 lines // DONE
 				- Delete: if check_stack_sorted, write: Stack is already sorted // DONE
                 - Make sure my make is not relinking
-                - Answer guestion and write about binary and other stuff I learned/realized today
+                - Answer guestion and write about binary value checking // DONE
                 - Study and use struct in my program correctly and efficiently
                 - Learn about booleans
-                - Chekc norminette
+                - Check norminette
+				- One last check with valgrind
+				- Last checks that the program actually works and compiles with checker
 
 
 17.8.
