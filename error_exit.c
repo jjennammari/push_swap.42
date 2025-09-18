@@ -31,13 +31,19 @@ void	error_array(int *array, char **argv, bool splitted)
     exit(1);
 }
 
-void	free_stack(t_node **stack, int size)
+void	free_stack(t_node **stack)
 {
-    if (!*stack)
+    t_node  *temp;
+    t_node  *next;
+
+    temp = *stack;
+    if (!temp)
 	return ;
-    while (size > 0)
+    while (temp)
     {
-	free(stack);
-	(*stack) = (*stack)->next;
+	next = temp->next;
+	free(temp);
+	temp = next;
     }
+    *stack = NULL;
 }

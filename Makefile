@@ -6,7 +6,7 @@
 #    By: jemustaj <jemustaj@student.42Porto.com>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2025/09/15 17:41:43 by jemustaj          #+#    #+#              #
-#    Updated: 2025/09/15 18:31:26 by jemustaj         ###   ########.fr        #
+#    Updated: 2025/09/18 19:15:42 by jemustaj         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,10 +16,11 @@ CC = cc
 CFLAGS = -g -Wall -Wextra -Werror -I./libft
 COMPILE_O = $(CC) $(CFLAGS) -c $< -o $@
 AR = ar -rcs
-RM = rm -rf
+RM = rm -rdf
+RM_LIBFT = ./libft/libft.a ./libft/*.o
 
 SRC = array_helper.c big_sort_stack.c binary_helper.c create_stack.c \
-	  error_exit.c push.c reverse_rotate.c rotate.c \
+	  error_exit.c push.c reverse_rotate.c rotate.c sort_stack.c \
 	  sort_helper.c stack_helper.c swap.c tiny_sort_stack.c main.c
 
 OBJS = $(SRC:.c=.o)
@@ -33,12 +34,12 @@ $(LIBFT):
 	@make -C libft
 
 $(NAME): $(LIBFT) $(OBJS)
-	$(CC) $(CFLAGS) $(OBJS) $(LIBFT) -o $(NAME)
+	$(CC) $(CFLAGS) $(LIBFT) $(OBJS) -o $(NAME)
 	@echo ">>> $(NAME) created <<<"
 
 clean:
+	$(RM) $(RM_LIBFT)
 	$(RM) $(OBJS)
-	$(RM) $(TEST_OBJS)
 
 fclean: clean
 	$(RM) $(NAME)

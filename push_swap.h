@@ -6,7 +6,7 @@
 /*   By: jemustaj <jemustaj@student.42Porto.com>    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/09/15 18:14:58 by jemustaj          #+#    #+#             */
-/*   Updated: 2025/09/15 18:42:56 by jemustaj         ###   ########.fr       */
+/*   Updated: 2025/09/18 18:52:22 by jemustaj         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,7 +51,11 @@ int		count_argv_size(char **argv);
 		/*\ error_exit.c \*/
 
 void    error_array(int *array, char **argv, bool splitted);
-void	free_stack(t_node **stack, int size);
+void	free_stack(t_node **stack);
+
+		/*\ sort_stack.c \*/
+
+void	sort_stack(t_node **a, t_node **b);
 
 		/*\ big_sort_stack.c \*/
 
