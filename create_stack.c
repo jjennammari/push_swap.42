@@ -30,6 +30,7 @@ void	create_stack(t_node **a, char **argv, int argc, bool splitted)
 		i--;
 		argc--;
 	}
+	free(argv_array);
 }
 
 void	add_to_stack(t_node **top, int nbr)
@@ -39,7 +40,7 @@ void	add_to_stack(t_node **top, int nbr)
 
 	new_node = malloc(sizeof(t_node));
 	if (!new_node)
-		error_malloc(top);
+		return ;
 	new_node->data = nbr;
 	temp = *top;
 	new_node->next = temp;

@@ -12,25 +12,6 @@
 
 #include "push_swap.h"
 
-void    error_malloc(t_node **a)
-{
-    int i;
-    t_node  *temp;
-
-    if (!a)
-	return ;
-    temp = *a;
-    i = count_stack_size(temp);
-    while (a != NULL && i > 0)
-    {
-    	free(*a);
-    	i--;
-	a++;
-    }
-    write (1, "Error\n", 6);
-    exit(1);
-}
-
 void	error_array(int *array, char **argv, bool splitted)
 {
     int	i;
@@ -48,4 +29,15 @@ void	error_array(int *array, char **argv, bool splitted)
     free(array);
     write (1, "Error\n", 6);
     exit(1);
+}
+
+void	free_stack(t_node **stack, int size)
+{
+    if (!*stack)
+	return ;
+    while (size > 0)
+    {
+	free(stack);
+	(*stack) = (*stack)->next;
+    }
 }

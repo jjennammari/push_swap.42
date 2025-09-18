@@ -22,7 +22,7 @@ int	main(int argc, char **argv)
 
 	splitted = argc == 2;
 	if ((argc == 1) || !(argv[1][0]))
-		return (0);
+		return (1);
 	a = NULL;
 	b = NULL;
 	if (argc == 2)
@@ -33,8 +33,6 @@ int	main(int argc, char **argv)
 	}
 	else
 		create_stack(&a, ++argv, argc, splitted);
-	if (check_stack_sorted(&a))
-		write (1, "Stack is already sorted\n", 24);
 	stack_size = count_stack_size(a);
 	if (!check_stack_sorted(&a))
 	{
@@ -43,5 +41,6 @@ int	main(int argc, char **argv)
 		else
 			big_sort(&a, &b);
 	}
-	free(a);
+	free_stack(&a, (argc - 1));
+	return (0);
 }

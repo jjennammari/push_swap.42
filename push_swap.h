@@ -50,8 +50,8 @@ int		count_argv_size(char **argv);
 
 		/*\ error_exit.c \*/
 
-void    error_malloc(t_node **a);
 void    error_array(int *array, char **argv, bool splitted);
+void	free_stack(t_node **stack, int size);
 
 		/*\ big_sort_stack.c \*/
 

@@ -27,7 +27,7 @@ void	big_sort(t_node **a, t_node **b)
 	while (bit_place < bit_size)
 	{
 		i = 0;
-		while (i < (stack_size - 1))
+		while (i < stack_size)
 		{
 			if (((*a)->data >> bit_place & 1) == 0)
 				push_b(a, b);
