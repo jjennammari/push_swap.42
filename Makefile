@@ -13,7 +13,7 @@
 NAME = push_swap
 LIBFT = ./libft/libft.a
 CC = cc
-CFLAGS = -g -Wall -Wextra -Werror -I./libft
+CFLAGS = -g -Wall -Wextra -Werror
 COMPILE_O = $(CC) $(CFLAGS) -c $< -o $@
 AR = ar -rcs
 RM = rm -rdf
@@ -34,7 +34,7 @@ $(LIBFT):
 	@make -C libft
 
 $(NAME): $(LIBFT) $(OBJS)
-	$(CC) $(CFLAGS) $(LIBFT) $(OBJS) -o $(NAME)
+	$(CC) $(CFLAGS) $(LIBFT) $(OBJS) -o $(NAME) -I./libft
 	@echo ">>> $(NAME) created <<<"
 
 clean:
