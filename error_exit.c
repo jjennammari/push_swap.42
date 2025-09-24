@@ -14,36 +14,37 @@
 
 void	error_array(int *array, char **argv, bool splitted)
 {
-    int	i;
-    if (!array)
-	return ;
-    if (splitted)
-    {
-	i = 0;
-	while (argv[i])
+	int	i;
+
+	if (!array)
+		return ;
+	if (splitted)
 	{
-	    free(argv[i]);
-	    i++;
+		i = 0;
+		while (argv[i])
+		{
+			free(argv[i]);
+			i++;
+		}
 	}
-    }
-    free(array);
-    write (1, "Error\n", 6);
-    exit(1);
+	free(array);
+	write (1, "Error\n", 6);
+	exit(1);
 }
 
 void	free_stack(t_node **stack)
 {
-    t_node  *temp;
-    t_node  *next;
+	t_node	*temp;
+	t_node	*next;
 
-    temp = *stack;
-    if (!temp)
-	return ;
-    while (temp)
-    {
-	next = temp->next;
-	free(temp);
-	temp = next;
-    }
-    *stack = NULL;
+	temp = *stack;
+	if (!temp)
+		return ;
+	while (temp)
+	{
+		next = temp->next;
+		free(temp);
+		temp = next;
+	}
+	*stack = NULL;
 }

@@ -12,20 +12,20 @@
 
 #include "push_swap.h"
 
-void    tiny_sort(t_node **a, t_node **b)
+void	tiny_sort(t_node **a, t_node **b)
 {
-    int stack_size;
+	int	stack_size;
 
-    stack_size = count_stack_size(*a);
-    if (stack_size <= 3)
-        sort_max_three(a);
-    else if (stack_size >= 4 && stack_size <= 5)
-        sort_max_five(a, b, stack_size);
+	stack_size = count_stack_size(*a);
+	if (stack_size <= 3)
+		sort_max_three(a);
+	else if (stack_size >= 4 && stack_size <= 5)
+		sort_max_five(a, b, stack_size);
 }
 
 void	sort_max_three(t_node **stack)
 {
-	int	max;
+	int		max;
 	t_node	*temp;
 	t_node	*last_node;
 

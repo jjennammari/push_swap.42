@@ -15,7 +15,7 @@
 void	create_array(int *arr, char **argv, int size, bool splitted)
 {
 	long	nbr;
-	int	i;
+	int		i;
 
 	i = 0;
 	while (i < size)
