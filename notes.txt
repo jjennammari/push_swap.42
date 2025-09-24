@@ -56,6 +56,7 @@ PUSH_SWAP
                 - Check norminette
 				- One last check with valgrind
 				- Last checks that the program actually works and compiles with checker
+				- Check that Makefile compiling issue with libft ft_split
 
 
 17.8.
